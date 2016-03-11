@@ -34,7 +34,7 @@ var parser = {
         }
 
         if (parser.params.vis) {
-            params += "visibility_level=" + parser.params.vis;
+            params += "visibility=" + parser.params.vis;
         }
 
         return params;
