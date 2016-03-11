@@ -1,0 +1,36 @@
+{
+  "name": "gitlab-projects-info-getter",
+  "version": "1.0.0",
+  "description": "Simple web app for getting gitlab projects id (for using it's api, for example in datafire.io)",
+  "main": "index.html",
+  "scripts": {
+    "init": "mkdir sources\\img",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/littleguga/gitlab-projects-info-getter.git"
+  },
+  "bugs": {
+    "url": "https://github.com/littleguga/gitlab-projects-info-getter/issues"
+  },
+  "homepage": "https://littleguga.github.io/gitlab-projects-info-getter",
+  "author": "littleguga",
+  "license": "MIT",
+  "dependencies": {
+    "material-design-lite": "^1.1.2"
+  },
+  "devDependencies": {
+    "gulp": "*",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-concat": "*",
+    "gulp-cssmin": "*",
+    "gulp-imagemin": "*",
+    "gulp-jade": "*",
+    "gulp-jsmin": "*",
+    "gulp-livereload": "*",
+    "gulp-rename": "*",
+    "gulp-stylus": "*",
+    "imagemin-pngquant": "*"
+  }
+}

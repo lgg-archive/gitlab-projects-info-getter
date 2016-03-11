@@ -1,0 +1,105 @@
+doctype html
+html(lang="en")
+    head
+        title Gitlab projects info getter
+        meta(charset="UTF-8")
+        meta(name='description',
+            content="Simple web app for getting gitlab projects id (for using it's api, for example in [datafire.io](//datafire.io))")
+        meta(name='keywords',
+            content="gitlab, api, projects")
+        link(rel='author',
+            href='https://github.com/littleguga')
+        <!-- Fow social parsing -->
+        meta(property="og:type",
+            content="website")
+        meta(property="og:title",
+            content="Gitlab projects info getter")
+        meta(property="og:site_name",
+            content="Gitlab projects info getter")
+        meta(property="og:url",
+            content="https://littleguga.github.io/gitlab-projects-info-getter")
+        meta(property="og:description",
+            content="Simple web app for getting gitlab projects id")
+        meta(property="og:image",
+            content="http://littleguga.github.io/gitlab-projects-info-getter/build/img/social_img.png")
+        meta(property="og:image:secure_url",
+            content="https://littleguga.github.io/gitlab-projects-info-getter/build/img/social_img.png")
+        meta(property="og:image:type",
+            content="image/png")
+        <!-- Favicons -->
+        link(rel="shortcut icon", href="favicon.ico")
+        link(rel="icon", sizes="16x16 32x32", href="favicon.ico")
+        link(rel="apple-touch-icon-precomposed", href="build/img/favicon/152.png")
+        <!-- Styles -->
+        link(rel='stylesheet', href='build/css/css.min.css')
+        link(rel='stylesheet', href='build/material/material.min.css')
+        <!-- Scripts -->
+        script(type='text/javascript' src='build/js/js.min.js')
+        script(type='text/javascript' src='build/material/material.min.js')
+    body
+        div.mdl-layout.mdl-js-layout
+            header.mdl-layout__header.mdl-color--blue-grey
+                div.mdl-layout__header-row
+                    span.mdl-layout-title Gitlab projects information getter
+                    div.mdl-layout-spacer
+                    nav.mdl-navigation
+                        a.mdl-navigation__link(href='https://github.com/gitlabhq/gitlabhq') Gitlab
+                        a.mdl-navigation__link(href='https://github.com/gitlabhq/gitlabhq/tree/master/doc') Gitlab api guide
+                        a.mdl-navigation__link(href='https://github.com/littleguga/gitlab-projects-info-getter') Get sources on Github
+            div.mdl-layout__content
+                div#inputs-wrap.container
+                    div.input-fields
+                        div.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+                            input(type="text", autocomplete="off").mdl-textfield__input#url
+                            label(for="url").mdl-textfield__label Gitlab url (e.g. gitlab.com)
+                    div.input-fields
+                        div.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+                            input(type="text", autocomplete="off").mdl-textfield__input#token
+                            label(for="token").mdl-textfield__label Gitlab token
+                    div.input-fields
+                        label(for="owned").mdl-checkbox.mdl-js-checkbox.mdl-js-ripple-effect
+                            input(type="checkbox", checked=true)#owned.mdl-checkbox__input
+                            span.mdl-checkbox__label Owned projects
+                    div.input-fields
+                        label(for="starred").mdl-checkbox.mdl-js-checkbox.mdl-js-ripple-effect
+                            input(type="checkbox")#starred.mdl-checkbox__input
+                            span.mdl-checkbox__label Starred projects
+                    div.input-fields
+                        label(for="archived").mdl-checkbox.mdl-js-checkbox.mdl-js-ripple-effect
+                            input(type="checkbox")#archived.mdl-checkbox__input
+                            span.mdl-checkbox__label Archived projects
+                    div
+                        div.input-fields
+                            label(for="vis-all").mdl-radio.mdl-js-radio.mdl-js-ripple-effect
+                                input(type="radio", name="vis", value="", checked=true)#vis-all.mdl-radio__button
+                                span.mdl-radio__label All projects
+                            label(for="vis-pub").mdl-radio.mdl-js-radio.mdl-js-ripple-effect
+                                input(type="radio", name="vis", value="20")#vis-pub.mdl-radio__button
+                                span.mdl-radio__label Public only
+                        div.input-fields
+                            label(for="vis-int").mdl-radio.mdl-js-radio.mdl-js-ripple-effect
+                                input(type="radio", name="vis", value="10")#vis-int.mdl-radio__button
+                                span.mdl-radio__label Internal only
+                            label(for="vis-pr").mdl-radio.mdl-js-radio.mdl-js-ripple-effect
+                                input(type="radio", name="vis", value="0")#vis-pr.mdl-radio__button
+                                span.mdl-radio__label Private only
+                    div.input-fields
+                        button#parse.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent Get
+                <!-- Result card -->
+                div#result.result-wrap.container.hidden
+                    div.mdl-card.mdl-shadow--2dp.card-result
+                        div.mdl-card__title.mdl-card--expand
+                            h2.mdl-card__title-text Your projects
+                        div.mdl-card__supporting-text
+                            table#result-content.mdl-data-table.mdl-js-data-table
+                        div.mdl-card__actions.mdl-card--border
+                            a#result-close.mdl-button.mdl-button--colored.mdl-js-button.mdl-js-ripple-effect Close
+        <!--Dark background layout-->
+        div#dark.mdl-layout__obfuscator
+        <!-- Loading animation -->
+        div#loader.loader-wrap.invisible
+            div#loader-bar.mdl-progress.mdl-js-progress.mdl-progress__indeterminate
+        <!-- Notification div -->
+        div#info.mdl-js-snackbar.mdl-snackbar(aria-hidden="true")
+            div.mdl-snackbar__text
+            button.mdl-snackbar__action(type="button")
