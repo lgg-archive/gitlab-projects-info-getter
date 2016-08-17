@@ -9,13 +9,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/littleguga/gitlab-projects-info-getter.git"
+    "url": "https://github.com/lgg/gitlab-projects-info-getter.git"
   },
   "bugs": {
-    "url": "https://github.com/littleguga/gitlab-projects-info-getter/issues"
+    "url": "https://github.com/lgg/gitlab-projects-info-getter/issues"
   },
-  "homepage": "https://littleguga.github.io/gitlab-projects-info-getter",
-  "author": "littleguga",
+  "homepage": "https://lgg.github.io/gitlab-projects-info-getter",
+  "author": "lgg",
   "license": "MIT",
   "dependencies": {
     "material-design-lite": "^1.1.2"
