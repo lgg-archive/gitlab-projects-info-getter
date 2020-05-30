@@ -7,4 +7,4 @@ Simple web app for getting gitlab projects id (for using it's api, for example i
 
 ## Usage
 
-[Can be used here](https://lgg.github.io/gitlab-projects-info-getter)
+[Can be used here](https://lgg-archive.github.io/gitlab-projects-info-getter/)
